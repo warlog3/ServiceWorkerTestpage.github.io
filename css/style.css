@@ -14,6 +14,39 @@ body {
   -webkit-touch-callout: none;
 }
 
+#btnAdd{
+  display:none;
+  position: fixed;
+  z-index: 5000;
+  right: 15px;
+  bottom: 150px;
+}
+
+#subscribe{
+  position: fixed;
+  z-index: 5000;
+  right: 15px;
+  bottom: 50px;
+}
+
+.circle-icon {
+  color: white;
+  font-size: 1.5em;
+  background: rgb(23, 97, 255);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  vertical-align: middle;
+  padding: 20px;
+}
+
+.circle-icon:hover{
+  background: rgb(0, 65, 206);
+  cursor: pointer;
+}
+
 header {
   background: #333;
   color: #fff;
