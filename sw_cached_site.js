@@ -15,7 +15,8 @@ self.addEventListener('install', event => {
 //Call activate event
 self.addEventListener('activate', event => {
   console.log("Service Worker: Aktiviert");
-
+  //Remove unwanted caches
+  
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
