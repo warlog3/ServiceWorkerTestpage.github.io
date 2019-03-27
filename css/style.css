@@ -9,6 +9,9 @@ body {
 
   /*Disables highlighting on links*/
   -webkit-tap-highlight-color: transparent;
+
+  /*Disables callouts */
+  -webkit-touch-callout: none;
 }
 
 header {
