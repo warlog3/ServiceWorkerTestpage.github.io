@@ -11,8 +11,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
 
+  btnAdd.style.display = "block";
   // Show the prompt
-  deferredPrompt.prompt();
+  /*deferredPrompt.prompt();
 
   deferredPrompt.userChoice
     .then( (choiceResult) => {
@@ -24,6 +25,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
       }
       deferredPrompt = null;
     });
+    */
 })
 
 //Make sure SW are supported
