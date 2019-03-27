@@ -1,7 +1,11 @@
 let deferredPrompt;
-
 let status = document.getElementById("status");
 status.innerHTML = "main.js called";
+
+caches.keys().then(function(names) {
+  for (let name of names)
+      caches.delete(name);
+});
 
 window.addEventListener('beforeinstallprompt', (e) => {
   status.innerHTML = "beforeinstallprompt called";
