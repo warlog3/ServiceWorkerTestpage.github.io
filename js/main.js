@@ -3,8 +3,7 @@ let headerColor2 = document.getElementById("headerColor");
 headerColor2.style.color = 'red';
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  let headerColor = document.getElementById("headerColor");
-  headerColor.style.color = 'blue';
+  headerColor2.style.color = 'green';
   
   /*
   // Prevent Chrome 67 and earlier from automatically showing the prompt
