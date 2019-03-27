@@ -1,9 +1,12 @@
 let deferredPrompt;
+let headerColor2 = document.getElementById("headerColor");
+headerColor2.style.color = 'red';
 
 window.addEventListener('beforeinstallprompt', (e) => {
   let headerColor = document.getElementById("headerColor");
   headerColor.style.color = 'white';
   
+  /*
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
   // Stash the event so it can be triggered later.
@@ -22,6 +25,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
       }
       deferredPrompt = null;
     });
+    */
 })
 
 //Make sure SW are supported
