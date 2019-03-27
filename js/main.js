@@ -3,15 +3,25 @@ let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
   let headerColor = document.getElementById("headerColor");
   headerColor.style.color = 'white';
-  /*
+  
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
 
-  // Update UI notify the user they can add to home screen
-  btnAdd.style.display = 'block';
-  */
+  // Show the prompt
+  deferredPrompt.prompt();
+
+  deferredPrompt.userChoice
+    .then( (choiceResult) => {
+      if(choiceResult.outcome === 'accepted'){
+
+      }
+      else{
+        console.log("User dismissed the add-to-homescreen-prompt!");
+      }
+      deferredPrompt = null;
+    });
 })
 
 //Make sure SW are supported
