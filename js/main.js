@@ -1,4 +1,5 @@
 let deferredPrompt;
+
 let headerColor2 = document.getElementById("headerColor");
 headerColor2.style.color = 'red';
 
@@ -30,6 +31,12 @@ window.addEventListener('beforeinstallprompt', (e) => {
 //Make sure SW are supported
 if('serviceWorker' in navigator){
   console.log('Service Worker supported!');
+
+  //Must be deleted afterwards! Only to clear the cache for testing
+  caches.keys().then(function(names) {
+    for (let name of names)
+        caches.delete(name);
+  });
 
   window.addEventListener('load', () => {
     navigator.serviceWorker
