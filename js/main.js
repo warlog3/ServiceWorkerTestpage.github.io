@@ -30,12 +30,6 @@ window.addEventListener('beforeinstallprompt', (e) => {
 if('serviceWorker' in navigator){
   console.log('Service Worker supported!');
 
-  //Must be deleted afterwards! Only to clear the cache for testing
-  caches.keys().then(function(names) {
-    for (let name of names)
-        caches.delete(name);
-  });
-
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('../sw_cached_pages.js')
