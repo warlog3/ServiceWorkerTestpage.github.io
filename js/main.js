@@ -50,8 +50,6 @@ function subscribeUser() {
   .then(function(subscription) {
     console.log('User is subscribed.');
 
-    updateSubscriptionOnServer(subscription);
-
     isSubscribed = true;
 
     updateBtn();
@@ -60,21 +58,6 @@ function subscribeUser() {
     console.log('Failed to subscribe the user: ', err);
     updateBtn();
   });
-}
-
-function updateSubscriptionOnServer(subscription) {
-  // TODO: Send subscription to application server
-
-  const subscriptionJson = document.querySelector('.js-subscription-json');
-  const subscriptionDetails =
-    document.querySelector('.js-subscription-details');
-
-  if (subscription) {
-    subscriptionJson.textContent = JSON.stringify(subscription);
-    subscriptionDetails.classList.remove('is-invisible');
-  } else {
-    subscriptionDetails.classList.add('is-invisible');
-  }
 }
 
 function initializeUI() {
@@ -122,9 +105,7 @@ btnAdd.addEventListener('click', (e) => {
 
 function updateBtn() {
 if (Notification.permission === 'denied') {
-    pushButton.textContent = 'Push Messaging Blocked.';
     pushButton.disabled = true;
-    updateSubscriptionOnServer(null);
     return;
   }
 
@@ -147,7 +128,7 @@ if('serviceWorker' in navigator){
   });
 
   //Add service worker responsible for push-messages
-  /*
+  
   if('PushManager' in window){
     navigator.serviceWorker.register('sw_push.js')
       .then(function(swReg) {
@@ -158,7 +139,8 @@ if('serviceWorker' in navigator){
       })
 
     console.log('Push notifications supported');
-
+      pushButton.style.display = "block";
+    /*
     navigator.serviceWorker.register('sw_push.js')
     .then(function(swReg) {
       console.log('Service Worker is registered', swReg);
@@ -172,5 +154,6 @@ if('serviceWorker' in navigator){
   else {
     console.warn('Push messaging NOT supported');
     pushButton.textContent = 'Push Not Supported';
-  }*/
+  */
+  }
 }

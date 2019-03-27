@@ -23,6 +23,7 @@ body {
 }
 
 #subscribe{
+  display:none;
   position: fixed;
   z-index: 5000;
   right: 15px;
