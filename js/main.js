@@ -15,6 +15,7 @@ caches.keys().then(function(names) {
       caches.delete(name);
 });
 
+/*Install Prompt*/
 window.addEventListener('beforeinstallprompt', (e) => {
   status.innerHTML = "beforeinstallprompt called";
 
@@ -41,6 +42,7 @@ function urlB64ToUint8Array(base64String) {
   return outputArray;
 }
 
+//Public Key in subscribe-method used for VAPID 
 function subscribeUser() {
   const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
   swRegistration.pushManager.subscribe({
@@ -60,7 +62,24 @@ function subscribeUser() {
   });
 }
 
+function displayNotification() {
+  if (Notification.permission == 'granted') {
+    navigator.serviceWorker.getRegistration().then(function(reg) {
+      reg.showNotification('Hello world!');
+    });
+  }
+}
+
 function initializeUI() {
+  //Can be used to automatically ask for notification permissions
+  Notification.requestPermission(function(status) {
+    console.log('Notification permission status:', status);
+    displayNotification();
+  });
+  // End
+
+
+  /*
   pushButton.addEventListener('click', function() {
     pushButton.disabled = true;
     if (isSubscribed) {
@@ -69,6 +88,7 @@ function initializeUI() {
       subscribeUser();
     }
   });
+  */
 
 
   // Set the initial subscription value
