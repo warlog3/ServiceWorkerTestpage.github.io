@@ -1,0 +1,5 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target" : { "namespace": "android_app", "package_name": "com.creditplus.cptest",
+                 "sha256_cert_fingerprints": ["A8:92:29:F9:DF:7A:2A:18:54:4B:F8:23:B7:1F:AD:11:F6:E9:8F:38:0A:CF:37:5A:DF:48:C4:54:14:F4:C6:8A"] }
+  }]

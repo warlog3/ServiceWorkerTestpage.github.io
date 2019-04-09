@@ -68,13 +68,15 @@ function displayNotification() {
       reg.showNotification('Hello world!');
     });
   }
+  else{
+    console.log("Permission has not yet been granted!");
+  }
 }
 
 function initializeUI() {
   //Can be used to automatically ask for notification permissions
   Notification.requestPermission(function(status) {
     console.log('Notification permission status:', status);
-    displayNotification();
   });
   // End
 
@@ -89,6 +91,10 @@ function initializeUI() {
     }
   });
   */
+
+  pushButton.addEventListener('click', function(){
+    displayNotification();
+  });
 
 
   // Set the initial subscription value
@@ -160,20 +166,6 @@ if('serviceWorker' in navigator){
 
     console.log('Push notifications supported');
       pushButton.style.display = "block";
-    /*
-    navigator.serviceWorker.register('sw_push.js')
-    .then(function(swReg) {
-      console.log('Service Worker is registered', swReg);
-
-      swRegistration = swReg;
-    })
-    .catch(function(error) {
-      console.error('Service Worker Error', error);
-    });
-  } 
-  else {
-    console.warn('Push messaging NOT supported');
-    pushButton.textContent = 'Push Not Supported';
-  */
   }
 }
+
